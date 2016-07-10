@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" type="image/png" href="./favicon.png" />
+<meta name="description" content="" />
+<meta name="author" content="xNedKx" />
+<meta name="copyright" content="xNedKx" />
+<!--link rel="author" href="xNedKx/posts" />
+<link rel="publisher" href="xNedKx" /-->
+<!--meta itemprop="name" content="xNedKx" />
+<meta itemprop="image" content="./thumb.png" />
+<meta itemprop="description" content="" />
+<meta property="og:title" content="xNedKx" />
+<meta property="og:url" content="//xnedkx.github.io/" />
+<meta property="og:image" content="./thumb.png" />
+<meta property="og:description" content="" /-->
+<!--meta name="twitter:card" content="./thumb.png" /> 
+<meta name="twitter:site" content="@xNedKx" /> 
+<meta name="twitter:title" content="xNedKx" /> 
+<meta name="twitter:description" content="" /> 
+<meta name="twitter:creator" content="@xNedKx" /> 
+<meta name="twitter:image:src" content="./thumb.png" /-->
+<title>xNedKx</title>
+<script src="https://xnedkx.github.io/color/cc-min.js"></script>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    font-family: "PT Sans Narrow", "Meiryo", "MS PGothic", "Apple LiGothic", "文泉驛正黑體", "SimHei", "Microsoft YaHei", "Microsoft JhengHei";
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    line-height: 18px;
+    cursor: default;
+}
+a[href] {
+    text-decoration: none;
+    color: #666;
+}
+a[href]:hover {
+    text-shadow: 0 0 1px #000;
+    text-decoration: underline;
+}
+a[href]:active {
+}
+a[href]:visited {
+}
+#header {
+    margin: 0 auto;
+    width: 100%;
+    height: 88px;
+    overflow: hidden;
+    position: relative;
+    z-index: 20;
+}
+#h-div {
+    margin: 0 auto;
+    width: 1020px;
+    min-width: 320px;
+    height: 87px;
+    position: relative;
+    /*background-color: #f9f9f9;*/
+    border-bottom: #111 1px solid;
+}
+#logo {
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+}
+#logo img {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    max-height: 90%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    /*background-color: #111;
+    background-image: url("logo-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;*/
+    z-index: 25;
+}
+#logo-c {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 22;
+}
+#all {
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    width: 100%;
+    /*overflow: hidden;*/
+    position: relative;
+}
+#nav {
+    margin: 0 auto;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0 0 1px 1px;
+    z-index: 15;
+}
+#nav .navbar {
+    margin: 0 auto;
+    width: 1000px;
+    padding: 5px 10px;
+    height: 20px;
+    position: relative;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #111 0, #222 2%, #333 10%, #444 100%);
+    box-shadow: 0 0 1px #333;
+    letter-spacing: 1px;
+}
+#nav-logo {
+    opacity: 0;
+    height: 100%;
+    float: right;
+}
+.fixed-nav #nav {
+    position: fixed;
+    top: 0;
+    height: 33px;
+}
+#nav-logo {
+    transition: all 0.3s;
+}
+.fixed-nav #nav-logo {
+    opacity: 1;
+}
+.fixed-nav #nav .navbar {
+    box-shadow: 0 2px 2px #333;
+}
+.fixed-nav #content {
+    padding-top: 30px;
+}
+#nav a[href] {
+    color: #ddd;
+    transition: color 0.2s;
+}
+#nav a[href]:hover {
+    color: #fff;
+}
+#nav a[href]:active {
+    color: #fff;
+}
+#nav a[href]:visited {
+    color: #ddd;
+}
+#content {
+    margin: 0 auto;
+    /*background-color: #f9f9f9;*/
+    width: 960px;
+    min-height: 960px;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+.block {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    clear: both;
+    border-radius: 1px;
+    padding: 35px 0 5px;
+    margin: -30px 0 30px;
+}
+.b-title {
+    padding-bottom: 5px;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+    color: #333;
+    font-family: "PT Sans Caption";
+    text-align: left;
+    padding-left: 10px;
+}
+.block .left {
+    float: left;
+    margin: 2px auto;
+    min-height: 20px;
+    width: 648px;
+    padding: 5px 10px;
+    border-radius: 1px;
+    background-color: rgba(0,0,0,0.1);
+    text-align: left;
+    border-style: solid;
+    border-color: #999;
+    border-width: 0 1px;
+}
+.block .right {
+    float: right;
+    margin: 2px auto;
+    min-height: 20px;
+    width: 268px;
+    padding: 5px 10px;
+    border-radius: 1px;
+    background-color: rgba(255,255,255,1);
+    text-align: left;
+    border-style: solid;
+    border-color: #999;
+    border-width: 0 1px 0 0;
+}
+.block > .box {
+    padding: 5px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 1px;
+}
+.block .i-title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+}
+.block .i-box {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 1px;
+}
+.block .group {
+    margin: 0 auto;
+}
+.block .group:hover .left{
+    border-color: #b0b0b0;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.05) 20%, rgba(0,0,0,0.1) 90%);
+    background-color: rgba(0,0,0,0);
+}
+.block .group:hover .right{
+    border-color: #bbb;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.1) 20%, rgba(255,255,255,1) 80%);
+}
+#home {
+    padding-top: 40px;
+    height: 480px;
+}
+#home canvas {
+    width: 960px;
+    height: 480px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    border-radius: 1px;
+}
+#about .box {
+    font-size: 18px;
+    line-height: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer {
+    margin: 0 auto;
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, #666 0, #444 90px);
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    z-index: 30;
+    /*border-top: #111 1px solid;*/
+}
+#footer-bar {
+    display: none;
+    width: 100%;
+    height: 100px;
+    background-image: url("./sq.png");
+    background-position: bottom center;
+    background-repeat: repeat-x;
+    background-size: 10px 8px;
+}
+#footer-body {
+    color: #fff;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+}
+#cr {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2px 0;
+    background-color: #333;
+}
+::selection {
+    color: #f0f0f0;
+    background-color: #333;
+}
+::-moz-selection {
+    color: #f0f0f0;
+    background-color: #333;
+}
+</style>
+</head>
+<body>
+<div id="all">
+<div id="header">
+<div id="h-div"><div id="logo"><img src="./logo-m.png" /><canvas id="logo-c" width="200" height="87"></canvas></div></div>
+</div>
+<div id="nav">
+<div class="navbar">
+<a href="#home">Home</a> | <a href="#about">About</a> | <a href="#games">Games</a> | <a href="#projects">Projects</a> | <a href="#archives">Archives</a><img id="nav-logo" src="./logo-w.png"/>
+</div>
+</div>
+<div id="content">
+<div id="home" class="block">
+<div></div>
+<canvas id="sandbox" width="960" height="480"></canvas>
+</div>
+<div id="about" class="block">
+<div class="b-title">About</div>
+<div class="box">
+Lists below are the web apps I did.<br><br>If you have intrest in any of them, you can contact me via<br><br><i>xnedkx at gmail</i> .
+</div>
+</div>
+<div id="games" class="block">
+<div class="b-title">Games</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">四色牌 Four Color Cards</span> - BGA studio/PHP + dojo</div>
+<div class="i-box">建立在 Board Game Arena 平台上的多人即時網頁遊戲，以 BGA Studio(PHP + MySQL + dojo) 框架撰寫。</div>
+</div>
+<div class="right">on BGA: <a href="https://boardgamearena.com/#!gamepanel?game=fourcolorcards" target="_blank">線上四色牌</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">2048</span></div>
+<div class="i-box">想說要是都只出現 1 或許會簡單一點而製作的版本。<br><br>使用方向鍵或觸控操作。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/2048/2048.htm" target="_blank">2048</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">五子棋 Gomoku</span></div>
+<div class="i-box">有簡易 AI 對戰功能的五子棋，也可以雙人在同一裝置上遊玩。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/p5g.htm" target="_blank">五子棋</a></div>
+</div>
+</div>
+<div id="projects" class="block">
+<div class="b-title">Projects</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">CC.js - Color Class for JS 色彩元件</span></div>
+<div class="i-box">提供 javascript 色彩類別，可進行色彩模式的轉換，色相、彩度、明度調整，關聯色取得等功能。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/color/" target="_blank">Color Class for JS</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">選色器</span> (desktop only)</div>
+<div class="i-box">以 CC.js 做出的簡單 HSV 色彩選擇器。<br><br>不適合行動裝置。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/color/hp.htm" target="_blank">選色器</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">Github 與 Git 簡介</span></div>
+<div class="i-box">一份簡介 Git 使用的筆記，記錄了 git shell 基本常用的指令。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Git_Introduction_Practice/" target="_blank">Github 與 Git 簡介</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">中醫方劑藥物複習測驗程式</span></div>
+<div class="i-box">提供了藥物分類、以方記藥、以藥記方 3 種複習測驗。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/chimed/" target="_blank">中藥測驗</a></div>
+</div>
+</div>
+<div id="archives" class="block">
+<div class="b-title">Archives</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">聊天室</span> - Django/Python + ajax</div>
+<div class="i-box">實驗性的聊天室，申請帳號後建立與其他帳號的聊天室便可使用。<br><br>以 Django 建立伺服端 API 並用 ajax 做出快速回應。</div>
+</div>
+<div class="right">on Heroku: <a href="https://chatroom-beta.herokuapp.com" target="_blank">聊天室</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">Google Docs Viewer Bookmarklet</span> (desktop only)</div>
+<div class="i-box">Google 文件瀏覽器捷徑的書籤程式，能以 google docs viewer 開啟選擇範圍內的網址或連結。<br><br>不適合行動裝置。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/gdvb.htm" target="_blank">GDVB</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">EAN13 產生器</span></div>
+<div class="i-box">將輸入的數字顯示為 EAN13 條碼，一般商品的條碼大多都屬於這種編碼方式。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/EAN13.htm" target="_blank">EAN13</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">CODE39 圖片生成器</span> - d3 + canvg</div>
+<div class="i-box">將輸入的文字轉換成 CODE39 條碼圖片，這種條碼常見於繳費單上，像是便利商店的三段式條碼。<br><br>使用了 d3 與 canvg 套件。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/code39.htm" target="_blank">CODE39</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">字母注音轉換器 alphabet to bopomofo converter</span> - backbone + (underscore) + jquery</div>
+<div class="i-box">將一般鍵盤未轉換成注音輸入的字母轉換成注音。<br><br>使用了 backbone 套件。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/w2z.htm" target="_blank">字母注音轉換器</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">電話號碼判定 Taiwanese phone number local filter</span> - ember + handlebar + jquery</div>
+<div class="i-box">依照 2016 年前電信規則判定輸入的電話號碼是否合法，並顯示該號碼可能的類性。<br><br>使用了 ember 框架。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/phone_local.htm" target="_blank">電話號碼判定</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">文字冒險遊戲框架 AVG Framework Demo</span></div>
+<div class="i-box">一個用純 javascript 試作的文字冒險遊戲框架展示。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/A_game_frame/project1/" target="_blank">文字冒險遊戲框架 Demo</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">梭哈牌型機率計算 Poker Probability</span> (desktop only)</div>
+<div class="i-box">計算梭哈拿到牌型的機率，左鍵選擇手上的牌，右鍵選擇已出現的牌。<br><br>不適合行動裝置。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/poker/poker.htm" target="_blank">梭哈牌型機率計算</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">花火機率提示 Hanabi Probability Calculator</span></div>
+<div class="i-box">計算桌遊花火成功打出的機率，經測試後發現跟不上遊戲節奏而不易使用。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/hanabi_probability.htm" target="_blank">花火機率提示</a></div>
+</div>
+<div class="group">
+<div class="left">
+<div><span class="i-title">麻將手牌判定 Mahjong Hand Check</span></div>
+<div class="i-box">選擇手上有的牌，程式會告知使用者有無聽牌或胡牌，聽牌時會提示可胡的牌。</div>
+</div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/mj-check/" target="_blank">麻將手牌判定</a></div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-bar"></div>
+<div id="footer-body">
+<div id="cr">Copyright reserved. xNedKx</div>
+</div>
+</div>
+</div>
+<script>
+window.onscroll = function(){
+    if(document.body.scrollTop >= 88 || document.documentElement.scrollTop >= 88){
+        document.getElementById("all").classList.add("fixed-nav");
+    }else{
+        document.getElementById("all").classList.remove("fixed-nav");
+    }
+}
+</script>
+<style>
+@import 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans+Caption';
+</style>
+<script>
+window.onload = function(){
+    var ca = document.getElementById("sandbox"), v = ca.getContext("2d"), color = new Color("hsv"), x = 0; y = 0, bw = 20, bh = 20;
+    color[0] = Math.floor(Math.random()*360);
+    color[1] = Math.floor(Math.random()*50)+50;
+    color[2] = Math.floor(Math.random()*50)+50;
+    function rc(){
+        var i = Math.floor(Math.random()*3), d = Math.floor(Math.random()*9)-4;
+        if( i == 0 ){
+            color[i] += d*2;
+        }else{
+            color[i] += d;
+        }
+        color.truncate();
+    }
+    function draw(){
+        rc();
+        v.fillStyle = color.hex();
+        v.fillRect(x,y,bw,bh);
+        x += bw;
+        if( x >= ca.width ){
+            y += bh;
+            x = 0;
+        }
+        if( y >= ca.height ){
+            y = 0;
+        }
+    }
+    setInterval( draw, 20 );
+}
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78696465-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
