@@ -28,6 +28,8 @@
 html, body {
     margin: 0;
     padding: 0;
+}
+body {
     background-color: #000;
     font-family: "PT Sans Narrow", "Meiryo", "MS PGothic", "Apple LiGothic", "文泉驛正黑體", "SimHei", "Microsoft YaHei", "Microsoft JhengHei";
     font-size: 16px;
@@ -94,6 +96,7 @@ a[href]:visited {
 }
 #all {
     margin: 0 auto;
+    background-image: url("./p.png");
     background-color: #f9f9f9;
     width: 100%;
     /*overflow: hidden;*/
@@ -156,7 +159,8 @@ a[href]:visited {
 }
 #content {
     margin: 0 auto;
-    /*background-color: #f9f9f9;*/
+    background-color: #f9f9f9;
+    padding: 0 10px;
     width: 960px;
     /*min-height: 960px;*/
     overflow: hidden;
@@ -334,6 +338,7 @@ a[href]:visited {
     letter-spacing: 1px;
 }
 #content {
+    padding: 0;
     width: 600px;
 }
 .b-title {
@@ -397,6 +402,7 @@ a[href]:visited {
     letter-spacing: 1px;
 }
 #content {
+    padding: 0;
     width: 500px;
 }
 .b-title {
@@ -462,6 +468,7 @@ a[href]:visited {
     line-height: 14px;
 }
 #content {
+    padding: 0;
     width: 320px;
 }
 .b-title {
@@ -534,7 +541,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">四色牌 Four Color Cards</span> - BGA studio/PHP + dojo</div>
-<div class="i-box">建立在 Board Game Arena 平台上的多人即時網頁遊戲，以 BGA Studio(PHP + MySQL + dojo) 框架撰寫。</div>
+<div class="i-box">建立在 Board Game Arena 平台上的多人即時網頁遊戲。<br><br>以 <a href="http://en.studio.boardgamearena.com/" target="_blank">BGA Studio</a> ( <a href="http://php.net/" target="_blank">PHP</a> + <a href="https://www.mysql.com/" target="_blank">MySQL</a> + <a href="https://dojotoolkit.org/" target="_blank">dojo toolkit</a> ) 框架撰寫。</div>
 </div>
 <div class="right">on BGA: <a href="https://boardgamearena.com/#!gamepanel?game=fourcolorcards" target="_blank">線上四色牌</a></div>
 </div>
@@ -572,7 +579,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">Github 與 Git 簡介</span></div>
-<div class="i-box">一份簡介 Git 使用的筆記，記錄了 git shell 基本常用的指令。</div>
+<div class="i-box">一份簡介 Git 使用的筆記，記錄了基本指令的用法。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Git_Introduction_Practice/" target="_blank">Github 與 Git 簡介</a></div>
 </div>
@@ -588,8 +595,8 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="b-title">Archives</div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">聊天室</span> - Django/Python + ajax</div>
-<div class="i-box">實驗性的聊天室，申請帳號後建立與其他帳號的聊天室便可使用。<br><br>以 Django 建立伺服端 API 並用 ajax 做出快速回應。</div>
+<div><span class="i-title">聊天室</span> - Django/Python + ajax (desktop only)</div>
+<div class="i-box">實驗性的聊天室，申請帳號後建立與其他帳號的聊天室便可使用。<br><br>以 <a href="https://www.djangoproject.com/" target="_blank">Django</a> 建立伺服端 API 並用 ajax 做出快速回應。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Heroku: <a href="https://chatroom-beta.herokuapp.com" target="_blank">聊天室</a></div>
 </div>
@@ -610,28 +617,28 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">CODE39 圖片生成器</span> - d3 + canvg</div>
-<div class="i-box">將輸入的文字轉換成 CODE39 條碼圖片，這種條碼常見於繳費單上，像是便利商店的三段式條碼。<br><br>使用了 d3 與 canvg 套件。</div>
+<div class="i-box">將輸入的英文字符轉換成 CODE39 條碼圖片，這種條碼常見於繳費單上，像是便利商店的三段式條碼。<br><br>使用了 <a href="https://d3js.org/" target="_blank">d3.js</a> 與 <a href="https://github.com/gabelerner/canvg" target="_blank">canvg</a> 套件。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/code39.htm" target="_blank">CODE39</a></div>
 </div>
 <div class="group">
 <div class="left">
 <div><span class="i-title">字母注音轉換器 alphabet to bopomofo converter</span> - backbone + (underscore) + jquery</div>
-<div class="i-box">將一般鍵盤未轉換成注音輸入的字母轉換成注音。<br><br>使用了 backbone 套件。</div>
+<div class="i-box">將一般鍵盤未轉換成注音輸入的字母轉換成注音。<br><br>使用了 <a href="http://backbonejs.org/" target="_blank">backbone.js</a> 套件。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/w2z.htm" target="_blank">字母注音轉換器</a></div>
 </div>
 <div class="group">
 <div class="left">
 <div><span class="i-title">電話號碼判定 Taiwanese phone number local filter</span> - ember + handlebar + jquery</div>
-<div class="i-box">依照 2016 年前電信規則判定輸入的電話號碼是否合法，並顯示該號碼可能的分類。<br><br>使用了 ember 框架。</div>
+<div class="i-box">依照 2015 年電信規則判定輸入的電話號碼是否合法，並顯示該號碼可能的分類。<br><br>使用了 <a href="http://emberjs.com/" target="_blank">ember</a> 框架。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/phone_local.htm" target="_blank">電話號碼判定</a></div>
 </div>
 <div class="group">
 <div class="left">
 <div><span class="i-title">文字冒險遊戲框架 AVG Framework Demo</span></div>
-<div class="i-box">一個用純 javascript 試作的文字冒險遊戲框架展示。</div>
+<div class="i-box">一個以 javascript 試作的文字冒險遊戲框架。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/A_game_frame/project1/" target="_blank">文字冒險遊戲框架 Demo</a></div>
 </div>
@@ -651,10 +658,10 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">麻將手牌判定 Mahjong Hand Check</span></div>
+<div><span class="i-title">麻將牌型判定 Mahjong Hand Check</span></div>
 <div class="i-box">選擇手上有的牌，程式會告知使用者有無聽牌或胡牌，聽牌時會提示可胡的牌。</div>
 </div>
-<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/mj-check/" target="_blank">麻將手牌判定</a></div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/mj-check/" target="_blank">麻將牌型判定</a></div>
 </div>
 </div>
 </div>
@@ -680,10 +687,11 @@ window.onscroll = function(){
 </style>
 <script>
 window.onload = function(){
-    var ca = document.getElementById("sandbox"), v = ca.getContext("2d"), color = new Color("hsv"), x = 0; y = 0, bw = 40, bh = 40;
+    var ca = document.getElementById("sandbox"), v = ca.getContext("2d"), color = new Color("hsv"), x = 0; y = 0, bw = 40, bh = 40, fr = 1;
     color[0] = Math.floor(Math.random()*360);
     color[1] = Math.floor(Math.random()*50)+50;
     color[2] = Math.floor(Math.random()*50)+50;
+    color.alpha.ratio = 0.2;
     function rc(){
         var i = Math.floor(Math.random()*3), d = Math.floor(Math.random()*9)-4;
         if( i == 0 ){
@@ -695,17 +703,23 @@ window.onload = function(){
     }
     function draw(){
         rc();
-        v.fillStyle = color.hex();
+        v.fillStyle = color.css();
         v.fillRect(x,y,bw,bh);
         x += bw;
         if( x >= ca.width ){
             y += bh;
             x = 0;
+            if( fr ){
+                color.alpha.ratio = y/ca.height * 0.8 + 0.2;
+            }
         }
         if( y >= ca.height ){
             y = 0;
+            fr = 0;
         }
     }
+    while(fr){draw()};
+    color.alpha = 100;
     var dr = setInterval( draw, 20 );
 }
 </script>
