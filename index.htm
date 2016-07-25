@@ -222,8 +222,19 @@ a[href]:visited {
 .block .i-title {
     font-weight: bold;
     font-size: 18px;
-    line-height: 20px;
+    line-height: 22px;
+    background-color: rgba(0,0,0,0.1);
+    padding-right: 4px;
     overflow: hidden;
+}
+.block .i-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 23px;
+    margin-right: 4px;
+    vertical-align: text-bottom;
+    background-color: rgba(0,0,0,0.3);
 }
 .block .i-box {
     margin: 5px 0;
@@ -232,8 +243,25 @@ a[href]:visited {
     border-radius: 1px;
     overflow: hidden;
 }
+.block .i-img {
+    margin: 4px 0;
+    padding: 10px 0;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 1px;
+    overflow: hidden;
+    text-align: center;
+}
+.block .i-img img {
+    border: 2px solid rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    max-width: 45%;
+    height: auto;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
 .block .group {
     margin: 0 auto;
+    padding-bottom: 30px;
+    display: inline-block;
 }
 .block .group:hover .left{
     border-color: #b0b0b0;
@@ -313,16 +341,13 @@ a[href]:visited {
 @media screen and (max-width: 1600px){
 
 }
-@media screen and (max-width: 1280px){
-
-}
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1024px){
 
 #header {
     height: 60px;
 }
 #h-div {
-    width: 600px;
+    width: 780px;
     height: 59px;
     border-bottom: #111 1px solid;
 }
@@ -332,14 +357,14 @@ a[href]:visited {
     right: 10px;
 }
 #nav .navbar {
-    width: 580px;
+    width: 760px;
     padding: 5px 10px;
     height: 20px;
     letter-spacing: 1px;
 }
 #content {
     padding: 0;
-    width: 600px;
+    width: 780px;
 }
 .b-title {
     padding-bottom: 5px;
@@ -353,7 +378,7 @@ a[href]:visited {
     float: left;
     margin: 2px auto;
     min-height: 20px;
-    width: 580px;
+    width: 760px;
     padding: 5px 10px;
     border: 0;
 }
@@ -361,7 +386,83 @@ a[href]:visited {
     float: right;
     margin: 2px auto;
     min-height: 20px;
-    width: 580px;
+    width: 760px;
+    padding: 5px 10px;
+    border: 0;
+}
+.block .i-title {
+    font-size: 18px;
+    line-height: 22px;
+}
+.block .i-img {
+    padding: 8px 0;
+}
+.block .i-img img {
+    max-width: 50%;
+}
+#home {
+    padding-top: 40px;
+    height: 390px;
+}
+#home canvas {
+    width: 780px;
+    height: 390px;
+    border: 0 solid #999;
+
+}
+@media screen and (max-width: 800px){
+
+#header {
+    height: 60px;
+}
+#h-div {
+    width: 560px;
+    height: 59px;
+    border-bottom: #111 1px solid;
+}
+#logo {
+    width: 160px;
+    height: 100%;
+    right: 10px;
+}
+#nav .navbar {
+    width: 540px;
+    padding: 5px 10px;
+    height: 20px;
+    letter-spacing: 1px;
+}
+#content {
+    padding: 0;
+    width: 560px;
+}
+.b-title {
+    padding-bottom: 5px;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+    padding-left: 10px;
+    text-align: center;
+}
+.block .i-img {
+    padding: 4px 0;
+}
+.block .i-img img {
+    max-width: 60%;
+}
+.block .left {
+    float: left;
+    margin: 2px auto;
+    min-height: 20px;
+    width: 540px;
+    padding: 5px 10px;
+    border: 0;
+}
+.block .right {
+    float: right;
+    margin: 2px auto;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    min-height: 20px;
+    width: 540px;
     padding: 5px 10px;
     border: 0;
 }
@@ -371,22 +472,22 @@ a[href]:visited {
 }
 #home {
     padding-top: 40px;
-    height: 300px;
+    height: 280px;
 }
 #home canvas {
-    width: 600px;
-    height: 300px;
+    width: 560px;
+    height: 280px;
     border: 0 solid #999;
 }
 
 }
-@media screen and (max-width: 540px){
+@media screen and (max-width: 600px){
 
 #header {
     height: 60px;
 }
 #h-div {
-    width: 540px;
+    width: 460px;
     height: 59px;
     border-bottom: #111 1px solid;
 }
@@ -396,14 +497,14 @@ a[href]:visited {
     right: 10px;
 }
 #nav .navbar {
-    width: 520px;
+    width: 460px;
     padding: 5px 10px;
     height: 22px;
     letter-spacing: 1px;
 }
 #content {
     padding: 0;
-    width: 500px;
+    width: 460px;
 }
 .b-title {
     padding-bottom: 5px;
@@ -413,19 +514,97 @@ a[href]:visited {
     padding-left: 10px;
     text-align: center;
 }
+.block .i-img img {
+    max-width: 75%;
+}
 .block .left {
     float: left;
     margin: 2px auto;
     min-height: 20px;
-    width: 480px;
+    width: 440px;
     padding: 5px 10px;
     border: 0;
 }
 .block .right {
     float: right;
     margin: 2px auto;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     min-height: 20px;
-    width: 480px;
+    width: 440px;
+    padding: 5px 10px;
+    border: 0;
+}
+.block .i-title {
+    font-size: 16px;
+    line-height: 18px;
+}
+.block .i-title::before {
+    height: 20px;
+}
+#home {
+    padding-top: 40px;
+    height: 230px;
+}
+#home canvas {
+    width: 460px;
+    height: 230px;
+    border: 0 solid #999;
+}
+
+@media screen and (max-width: 500px){
+
+#header {
+    height: 60px;
+}
+#h-div {
+    width: 380px;
+    height: 59px;
+    border-bottom: #111 1px solid;
+}
+#logo {
+    width: 120px;
+    height: 100%;
+    right: 10px;
+}
+#nav .navbar {
+    width: 380px;
+    padding: 5px 10px;
+    height: 22px;
+    letter-spacing: 1px;
+}
+#content {
+    padding: 0;
+    width: 380px;
+}
+.b-title {
+    padding-bottom: 5px;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+    padding-left: 10px;
+    text-align: center;
+}
+.block .i-img {
+    margin: 2px auto;
+    padding: 2px 0;
+}
+.block .i-img img {
+    max-width: 90%;
+}
+.block .left {
+    float: left;
+    margin: 2px auto;
+    min-height: 20px;
+    width: 360px;
+    padding: 5px 10px;
+    border: 0;
+}
+.block .right {
+    float: right;
+    margin: 2px auto;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    min-height: 20px;
+    width: 360px;
     padding: 5px 10px;
     border: 0;
 }
@@ -435,16 +614,16 @@ a[href]:visited {
 }
 #home {
     padding-top: 40px;
-    height: 250px;
+    height: 190px;
 }
 #home canvas {
-    width: 500px;
-    height: 250px;
+    width: 380px;
+    height: 190px;
     border: 0 solid #999;
 }
 
 }
-@media screen and (max-width: 420px){
+@media screen and (max-width: 400px){
 
 #header {
     height: 40px;
@@ -479,6 +658,11 @@ a[href]:visited {
     padding-left: 10px;
     text-align: center;
 }
+.block .i-img img {
+    border: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
 .block .left {
     float: left;
     margin: 2px auto;
@@ -490,6 +674,7 @@ a[href]:visited {
 .block .right {
     float: right;
     margin: 2px auto;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     min-height: 20px;
     width: 310px;
     padding: 5px;
@@ -541,6 +726,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">四色牌 Four Color Cards</span> - BGA studio/PHP + dojo</div>
+<div class="i-img"><img data-src="./fcc.png" /></div>
 <div class="i-box">建立在 Board Game Arena 平台上的多人即時網頁遊戲。<br><br>以 <a href="http://en.studio.boardgamearena.com/" target="_blank">BGA Studio</a> ( <a href="http://php.net/" target="_blank">PHP</a> + <a href="https://www.mysql.com/" target="_blank">MySQL</a> + <a href="https://dojotoolkit.org/" target="_blank">dojo toolkit</a> ) 框架撰寫。</div>
 </div>
 <div class="right">on BGA: <a href="https://boardgamearena.com/#!gamepanel?game=fourcolorcards" target="_blank">線上四色牌</a></div>
@@ -548,6 +734,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">2048</span></div>
+<div class="i-img"><img data-src="./2048.png" /></div>
 <div class="i-box">想說要是都只出現 1 或許會簡單一點而製作的版本。<br><br>使用方向鍵或觸控操作。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/2048/2048.htm" target="_blank">2048</a></div>
@@ -555,6 +742,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">五子棋 Gomoku</span></div>
+<div class="i-img"><img data-src="./p5g.png" /></div>
 <div class="i-box">有簡易 AI 對戰功能的五子棋，也可以雙人在同一裝置上遊玩。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/p5g.htm" target="_blank">五子棋</a></div>
@@ -565,6 +753,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">CC.js - Color Class for JS 色彩元件</span></div>
+<div class="i-img"><img data-src="./ccjs.png" /></div>
 <div class="i-box">提供 javascript 色彩類別，可進行色彩模式的轉換，色相、彩度、明度調整，關聯色取得等功能。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/color/" target="_blank">Color Class for JS</a></div>
@@ -572,6 +761,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">選色器</span> (desktop only)</div>
+<div class="i-img"><img data-src="./cp.png" /></div>
 <div class="i-box">以 CC.js 做出的簡單 HSV 色彩選擇器。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/color/hp.htm" target="_blank">選色器</a></div>
@@ -579,6 +769,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">Github 與 Git 簡介</span></div>
+<div class="i-img"><img data-src="./github.png" /></div>
 <div class="i-box">一份簡介 Git 使用的筆記，記錄了基本指令的用法。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Git_Introduction_Practice/" target="_blank">Github 與 Git 簡介</a></div>
@@ -586,6 +777,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">中醫方劑藥物複習測驗程式</span></div>
+<div class="i-img"><img data-src="./cmt.png" /></div>
 <div class="i-box">提供了藥物分類、以方記藥、以藥記方 3 種複習測驗。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/chimed/" target="_blank">中藥測驗</a></div>
@@ -596,6 +788,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">聊天室</span> - Django/Python + ajax (desktop only)</div>
+<div class="i-img"><img data-src="./chatroom.png" /></div>
 <div class="i-box">實驗性的聊天室，申請帳號後建立與其他帳號的聊天室便可使用。<br><br>以 <a href="https://www.djangoproject.com/" target="_blank">Django</a> 建立伺服端 API 並用 ajax 做出快速回應。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Heroku: <a href="https://chatroom-beta.herokuapp.com" target="_blank">聊天室</a></div>
@@ -603,6 +796,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">Google Docs Viewer Bookmarklet</span> (desktop only)</div>
+<div class="i-img"><img data-src="./gdvb.png" /></div>
 <div class="i-box">Google 文件瀏覽器捷徑的書籤程式，能以 google docs viewer 開啟選擇範圍內的網址或連結。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/gdvb.htm" target="_blank">GDVB</a></div>
@@ -610,6 +804,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">EAN13 產生器</span></div>
+<div class="i-img"><img data-src="./ean13.png" /></div>
 <div class="i-box">將輸入的數字顯示為 EAN13 條碼，一般商品的條碼大多都屬於這種編碼方式。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/EAN13.htm" target="_blank">EAN13</a></div>
@@ -617,6 +812,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">CODE39 圖片生成器</span> - d3 + canvg</div>
+<div class="i-img"><img data-src="./code39.png" /></div>
 <div class="i-box">將輸入的英文字符轉換成 CODE39 條碼圖片，這種條碼常見於繳費單上，像是便利商店的三段式條碼。<br><br>使用了 <a href="https://d3js.org/" target="_blank">d3.js</a> 與 <a href="https://github.com/gabelerner/canvg" target="_blank">canvg</a> 套件。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/code39.htm" target="_blank">CODE39</a></div>
@@ -624,6 +820,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">字母注音轉換器 alphabet to bopomofo converter</span> - backbone + (underscore) + jquery</div>
+<div class="i-img"><img data-src="./w2z.png" /></div>
 <div class="i-box">將一般鍵盤未轉換成注音輸入的字母轉換成注音。<br><br>使用了 <a href="http://backbonejs.org/" target="_blank">backbone.js</a> 套件。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/w2z.htm" target="_blank">字母注音轉換器</a></div>
@@ -631,6 +828,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">電話號碼判定 Taiwanese phone number local filter</span> - ember + handlebar + jquery</div>
+<div class="i-img"><img data-src="./phone.png" /></div>
 <div class="i-box">依照 2015 年電信規則判定輸入的電話號碼是否合法，並顯示該號碼可能的分類。<br><br>使用了 <a href="http://emberjs.com/" target="_blank">ember</a> 框架。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/phone_local.htm" target="_blank">電話號碼判定</a></div>
@@ -638,6 +836,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">文字冒險遊戲框架 AVG Framework Demo</span></div>
+<div class="i-img"><img data-src="./avg.png" /></div>
 <div class="i-box">一個以 javascript 試作的文字冒險遊戲框架。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/A_game_frame/project1/" target="_blank">文字冒險遊戲框架 Demo</a></div>
@@ -645,6 +844,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">梭哈牌型機率計算 Poker Probability</span> (desktop only)</div>
+<div class="i-img"><img data-src="./poker.png" /></div>
 <div class="i-box">計算梭哈拿到牌型的機率，左鍵選擇手上的牌，右鍵選擇已出現的牌。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/poker/poker.htm" target="_blank">梭哈牌型機率計算</a></div>
@@ -652,6 +852,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">花火機率提示 Hanabi Probability Calculator</span></div>
+<div class="i-img"><img data-src="./hanabi.png" /></div>
 <div class="i-box">計算桌遊花火成功打出的機率，經測試後發現跟不上遊戲節奏而不易使用。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/hanabi_probability.htm" target="_blank">花火機率提示</a></div>
@@ -659,6 +860,7 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="group">
 <div class="left">
 <div><span class="i-title">麻將牌型判定 Mahjong Hand Check</span></div>
+<div class="i-img"><img data-src="./mj.png" /></div>
 <div class="i-box">選擇手上有的牌，程式會告知使用者有無聽牌或胡牌，聽牌時會提示可胡的牌。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/mj-check/" target="_blank">麻將牌型判定</a></div>
@@ -673,20 +875,22 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 </div>
 </div>
 <script>
-window.onscroll = function(){
-    var h = document.getElementById("header").offsetHeight
-    if(document.body.scrollTop >= h || document.documentElement.scrollTop >= h){
-        document.getElementById("all").classList.add("fixed-nav");
-    }else{
-        document.getElementById("all").classList.remove("fixed-nav");
-    }
-}
 </script>
 <style>
 @import 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans+Caption';
 </style>
 <script>
 window.onload = function(){
+    window.onscroll = function(){
+        var h = document.getElementById("header").offsetHeight, bg = document.getElementById("all"), st = document.body.scrollTop || document.documentElement.scrollTop, sh = (document.body.scrollHeight || document.documentElement.scrollHeight) - screen.availHeight;
+        if(st >= h){
+            document.getElementById("all").classList.add("fixed-nav");
+        }else{
+            document.getElementById("all").classList.remove("fixed-nav");
+        }
+        all.style.backgroundPosition = "0 "+(st*0.90)+"px";
+        all.style.backgroundColor = Color("grayscale",0.9764705882352941*(1-st/sh*0.8)).hex();
+    }
     var ca = document.getElementById("sandbox"), v = ca.getContext("2d"), color = new Color("hsv"), x = 0; y = 0, bw = 40, bh = 40, fr = 1;
     color[0] = Math.floor(Math.random()*360);
     color[1] = Math.floor(Math.random()*50)+50;
@@ -721,6 +925,20 @@ window.onload = function(){
     while(fr){draw()};
     color.alpha = 100;
     var dr = setInterval( draw, 20 );
+    function loadImg(){
+        var d = document.querySelector("img[data-src]"), img = new Image();
+        if(d){
+            img.onload = function(){
+                this.onload = undefined;
+            }
+            d.parentNode.insertBefore(img, d);
+            d.parentNode.removeChild(d);
+            img.src = d.dataset.src;
+            return 1;
+        }
+        return 0;
+    }
+    while(loadImg()){};
 }
 </script>
 <script>
