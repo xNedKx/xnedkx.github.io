@@ -23,7 +23,6 @@
 <meta name="twitter:creator" content="@xNedKx" /> 
 <meta name="twitter:image:src" content="./thumb.png" /-->
 <title>xNedKx</title>
-<script src="https://xnedkx.github.io/color/cc-min.js"></script>
 <style>
 html, body {
     margin: 0;
@@ -220,14 +219,20 @@ a[href]:visited {
     overflow: hidden;
 }
 .block .i-title {
+    font-size: 16px;
+}
+.block .i-title span:nth-child(1) {
+    display: inline-block;
+    height: 23px;
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
     background-color: rgba(0,0,0,0.1);
     padding-right: 4px;
     overflow: hidden;
+    vertical-align: text-top;
 }
-.block .i-title::before {
+.block .i-title span:nth-child(1)::before {
     content: "";
     display: inline-block;
     width: 4px;
@@ -251,27 +256,56 @@ a[href]:visited {
     overflow: hidden;
     text-align: center;
 }
-.block .i-img img {
+.block .i-img .js-loaded-img {
+    max-width: 50%;
+}
+.js-loaded-img {
+    display: inline-block;
+    position: relative;
+}
+.js-loaded-img img {
     border: 2px solid rgba(0,0,0,0.1);
     box-sizing: border-box;
-    max-width: 45%;
-    zoom: 40%;
+    zoom: 50%;
+    width: 100%;
     height: auto;
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    z-index: 5;
+}
+.i-img .js-loaded-img::before {
+    content: "";
+    z-index: 10;
+    background-color: rgba(222,222,222,0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.group.view .i-img .js-loaded-img::before {
+    background-color: rgba(222,222,222,0.05);
+}
+.block .group:hover .js-loaded-img::before {
+    background-color: rgba(222,222,222,0);
 }
 .block .group {
     margin: 0 auto;
     padding-bottom: 30px;
     display: inline-block;
 }
-.block .group:hover .left{
-    border-color: #b0b0b0;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.05) 20%, rgba(0,0,0,0.1) 90%);
-    background-color: rgba(0,0,0,0);
+.block .group .left, .block .group .right, .block .group .js-loaded-img::before{
+    transition: all 0.2s ease-in;
 }
-.block .group:hover .right{
+.block .group.view .left{
+    border-color: #b0b0b0;
+    background-image: linear-gradient(20deg, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.3) 90%);
+}
+.block .group.view .right{
     border-color: #bbb;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.1) 20%, rgba(255,255,255,1) 80%);
+    background-image: linear-gradient(20deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0.6) 30%);
+}
+.block .group.view .i-title span{
+    background-color: rgba(255,255,255,0.2);
 }
 #home {
     padding-top: 40px;
@@ -336,6 +370,9 @@ a[href]:visited {
     color: #f0f0f0;
     background-color: #333;
 }
+.js-item {
+    display: none;
+}
 @media screen and (max-width: 1920px){
 
 }
@@ -391,14 +428,14 @@ a[href]:visited {
     padding: 5px 10px;
     border: 0;
 }
-.block .i-title {
+.block .i-title span:nth-child(1) {
     font-size: 18px;
     line-height: 22px;
 }
 .block .i-img {
     padding: 8px 0;
 }
-.block .i-img img {
+.block .i-img .js-loaded-img {
     max-width: 50%;
 }
 #home {
@@ -444,10 +481,16 @@ a[href]:visited {
     padding-left: 10px;
     text-align: center;
 }
+.block .i-title span:nth-child(1) {
+    height: 20px;
+}
+.block .i-title span:nth-child(1)::before {
+    height: 20px;
+}
 .block .i-img {
     padding: 4px 0;
 }
-.block .i-img img {
+.block .i-img .js-loaded-img {
     max-width: 60%;
 }
 .block .left {
@@ -467,7 +510,7 @@ a[href]:visited {
     padding: 5px 10px;
     border: 0;
 }
-.block .i-title {
+.block .i-title span:nth-child(1) {
     font-size: 16px;
     line-height: 18px;
 }
@@ -515,7 +558,7 @@ a[href]:visited {
     padding-left: 10px;
     text-align: center;
 }
-.block .i-img img {
+.block .i-img .js-loaded-img {
     max-width: 75%;
 }
 .block .left {
@@ -534,10 +577,6 @@ a[href]:visited {
     width: 440px;
     padding: 5px 10px;
     border: 0;
-}
-.block .i-title {
-    font-size: 16px;
-    line-height: 18px;
 }
 .block .i-title::before {
     height: 20px;
@@ -589,7 +628,7 @@ a[href]:visited {
     margin: 2px auto;
     padding: 2px 0;
 }
-.block .i-img img {
+.block .i-img .js-loaded-img {
     max-width: 90%;
 }
 .block .left {
@@ -608,10 +647,6 @@ a[href]:visited {
     width: 360px;
     padding: 5px 10px;
     border: 0;
-}
-.block .i-title {
-    font-size: 16px;
-    line-height: 18px;
 }
 #home {
     padding-top: 40px;
@@ -659,7 +694,7 @@ a[href]:visited {
     padding-left: 10px;
     text-align: center;
 }
-.block .i-img img {
+.block .i-img .js-loaded-img {
     border: 0;
     box-sizing: border-box;
     max-width: 100%;
@@ -680,10 +715,6 @@ a[href]:visited {
     width: 310px;
     padding: 5px;
     border: 0;
-}
-.block .i-title {
-    font-size: 16px;
-    line-height: 18px;
 }
 #home {
     padding-top: 40px;
@@ -714,7 +745,7 @@ a[href]:visited {
 <div id="content">
 <div id="home" class="block">
 <div></div>
-<canvas id="sandbox" width="2000" height="1000"></canvas>
+<canvas id="sandbox" class="js-item" width="2000" height="1000"></canvas>
 </div>
 <div id="about" class="block">
 <div class="b-title">About</div>
@@ -726,24 +757,24 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="b-title">Games</div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">四色牌 Four Color Cards</span> - BGA studio/PHP + dojo</div>
-<div class="i-img"><img data-src="./fcc.png" /></div>
+<div class="i-title"><span>四色牌 Four Color Cards</span> - BGA studio/PHP + dojo</div>
+<div class="i-img js-item"><img data-src="./fcc.png" /></div>
 <div class="i-box">建立在 Board Game Arena 平台上的多人即時網頁遊戲。<br><br>以 <a href="http://en.studio.boardgamearena.com/" target="_blank">BGA Studio</a> ( <a href="http://php.net/" target="_blank">PHP</a> + <a href="https://www.mysql.com/" target="_blank">MySQL</a> + <a href="https://dojotoolkit.org/" target="_blank">dojo toolkit</a> ) 框架撰寫。</div>
 </div>
 <div class="right">on BGA: <a href="https://boardgamearena.com/#!gamepanel?game=fourcolorcards" target="_blank">線上四色牌</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">2048</span></div>
-<div class="i-img"><img data-src="./2048.png" /></div>
+<div class="i-title"><span>2048</span></div>
+<div class="i-img js-item"><img data-src="./2048.png" /></div>
 <div class="i-box">想說要是都只出現 1 或許會簡單一點而製作的版本。<br><br>使用方向鍵或觸控操作。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/2048/2048.htm" target="_blank">2048</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">五子棋 Gomoku</span></div>
-<div class="i-img"><img data-src="./p5g.png" /></div>
+<div class="i-title"><span>五子棋 Gomoku</span></div>
+<div class="i-img js-item"><img data-src="./p5g.png" /></div>
 <div class="i-box">有簡易 AI 對戰功能的五子棋，也可以雙人在同一裝置上遊玩。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/p5g.htm" target="_blank">五子棋</a></div>
@@ -753,32 +784,32 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="b-title">Projects</div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">CC.js - Color Class for JS 色彩元件</span></div>
-<div class="i-img"><img data-src="./ccjs.png" /></div>
+<div class="i-title"><span>CC.js - Color Class for JS 色彩元件</span></div>
+<div class="i-img js-item"><img data-src="./ccjs.png" /></div>
 <div class="i-box">提供 javascript 色彩類別，可進行色彩模式的轉換，色相、彩度、明度調整，關聯色取得等功能。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/color/" target="_blank">Color Class for JS</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">選色器</span> (desktop only)</div>
-<div class="i-img"><img data-src="./cp.png" /></div>
+<div class="i-title"><span>選色器</span> (desktop only)</div>
+<div class="i-img js-item"><img data-src="./cp.png" /></div>
 <div class="i-box">以 CC.js 做出的簡單 HSV 色彩選擇器。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/color/hp.htm" target="_blank">選色器</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">Github 與 Git 簡介</span></div>
-<div class="i-img"><img data-src="./github.png" /></div>
+<div class="i-title"><span>Github 與 Git 簡介</span></div>
+<div class="i-img js-item"><img data-src="./github.png" /></div>
 <div class="i-box">一份簡介 Git 使用的筆記，記錄了基本指令的用法。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Git_Introduction_Practice/" target="_blank">Github 與 Git 簡介</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">中醫方劑藥物複習測驗程式</span></div>
-<div class="i-img"><img data-src="./cmt.png" /></div>
+<div class="i-title"><span>中醫方劑藥物複習測驗程式</span></div>
+<div class="i-img js-item"><img data-src="./cmt.png" /></div>
 <div class="i-box">提供了藥物分類、以方記藥、以藥記方 3 種複習測驗。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/chimed/" target="_blank">中藥測驗</a></div>
@@ -788,80 +819,80 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="b-title">Archives</div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">聊天室</span> - Django/Python + ajax (desktop only)</div>
-<div class="i-img"><img data-src="./chatroom.png" /></div>
+<div class="i-title"><span>聊天室</span> - Django/Python + ajax (desktop only)</div>
+<div class="i-img js-item"><img data-src="./chatroom.png" /></div>
 <div class="i-box">實驗性的聊天室，申請帳號後建立與其他帳號的聊天室便可使用。<br><br>以 <a href="https://www.djangoproject.com/" target="_blank">Django</a> 建立伺服端 API 並用 ajax 做出快速回應。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Heroku: <a href="https://chatroom-beta.herokuapp.com" target="_blank">聊天室</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">Google Docs Viewer Bookmarklet</span> (desktop only)</div>
-<div class="i-img"><img data-src="./gdvb.png" /></div>
+<div class="i-title"><span>Google Docs Viewer Bookmarklet</span> (desktop only)</div>
+<div class="i-img js-item"><img data-src="./gdvb.png" /></div>
 <div class="i-box">Google 文件瀏覽器捷徑的書籤程式，能以 google docs viewer 開啟選擇範圍內的網址或連結。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/gdvb.htm" target="_blank">GDVB</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">EAN13 產生器</span></div>
-<div class="i-img"><img data-src="./ean13.png" /></div>
+<div class="i-title"><span>EAN13 產生器</span></div>
+<div class="i-img js-item"><img data-src="./ean13.png" /></div>
 <div class="i-box">將輸入的數字顯示為 EAN13 條碼，一般商品的條碼大多都屬於這種編碼方式。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/EAN13.htm" target="_blank">EAN13</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">CODE39 圖片生成器</span> - d3 + canvg</div>
-<div class="i-img"><img data-src="./code39.png" /></div>
+<div class="i-title"><span>CODE39 圖片生成器</span> - d3 + canvg</div>
+<div class="i-img js-item"><img data-src="./code39.png" /></div>
 <div class="i-box">將輸入的英文字符轉換成 CODE39 條碼圖片，這種條碼常見於繳費單上，像是便利商店的三段式條碼。<br><br>使用了 <a href="https://d3js.org/" target="_blank">d3.js</a> 與 <a href="https://github.com/gabelerner/canvg" target="_blank">canvg</a> 套件。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/code39.htm" target="_blank">CODE39</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">字母注音轉換器 alphabet to bopomofo converter</span> - backbone + (underscore) + jquery</div>
-<div class="i-img"><img data-src="./w2z.png" /></div>
+<div class="i-title"><span>字母注音轉換器 alphabet to bopomofo converter</span> - backbone + (underscore) + jquery</div>
+<div class="i-img js-item"><img data-src="./w2z.png" /></div>
 <div class="i-box">將一般鍵盤未轉換成注音輸入的字母轉換成注音。<br><br>使用了 <a href="http://backbonejs.org/" target="_blank">backbone.js</a> 套件。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/w2z.htm" target="_blank">字母注音轉換器</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">電話號碼判定 Taiwanese phone number local filter</span> - ember + handlebar + jquery</div>
-<div class="i-img"><img data-src="./phone.png" /></div>
+<div class="i-title"><span>電話號碼判定 Taiwanese phone number local filter</span> - ember + handlebar + jquery</div>
+<div class="i-img js-item"><img data-src="./phone.png" /></div>
 <div class="i-box">依照 2015 年電信規則判定輸入的電話號碼是否合法，並顯示該號碼可能的分類。<br><br>使用了 <a href="http://emberjs.com/" target="_blank">ember</a> 框架。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/phone_local.htm" target="_blank">電話號碼判定</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">文字冒險遊戲框架 AVG Framework Demo</span></div>
-<div class="i-img"><img data-src="./avg.png" /></div>
+<div class="i-title"><span>文字冒險遊戲框架 AVG Framework Demo</span></div>
+<div class="i-img js-item"><img data-src="./avg.png" /></div>
 <div class="i-box">一個以 javascript 試作的文字冒險遊戲框架。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/A_game_frame/project1/" target="_blank">文字冒險遊戲框架 Demo</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">梭哈牌型機率計算 Poker Probability</span> (desktop only)</div>
-<div class="i-img"><img data-src="./poker.png" /></div>
+<div class="i-title"><span>梭哈牌型機率計算 Poker Probability</span> (desktop only)</div>
+<div class="i-img js-item"><img data-src="./poker.png" /></div>
 <div class="i-box">計算梭哈拿到牌型的機率，左鍵選擇手上的牌，右鍵選擇已出現的牌。<br><br>不適合行動裝置。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/poker/poker.htm" target="_blank">梭哈牌型機率計算</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">花火機率提示 Hanabi Probability Calculator</span></div>
-<div class="i-img"><img data-src="./hanabi.png" /></div>
+<div class="i-title"><span>花火機率提示 Hanabi Probability Calculator</span></div>
+<div class="i-img js-item"><img data-src="./hanabi.png" /></div>
 <div class="i-box">計算桌遊花火成功打出的機率，經測試後發現跟不上遊戲節奏而不易使用。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/hanabi_probability.htm" target="_blank">花火機率提示</a></div>
 </div>
 <div class="group">
 <div class="left">
-<div><span class="i-title">麻將牌型判定 Mahjong Hand Check</span></div>
-<div class="i-img"><img data-src="./mj.png" /></div>
+<div class="i-title"><span>麻將牌型判定 Mahjong Hand Check</span></div>
+<div class="i-img js-item"><img data-src="./mj.png" /></div>
 <div class="i-box">選擇手上有的牌，程式會告知使用者有無聽牌或胡牌，聽牌時會提示可胡的牌。</div>
 </div>
 <div class="right">on Github: <a href="https://xnedkx.github.io/Practices/mj-check/" target="_blank">麻將牌型判定</a></div>
@@ -877,23 +908,28 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 </div>
 <script>
 </script>
-<style>
-@import 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans+Caption';
-</style>
 <script>
-window.onload = function(){
-    var bgc = Color("#f9f9f9").hsv(0);
-    window.onscroll = function(){
-        var h = document.getElementById("header").offsetHeight, bg = document.getElementById("all"), st = document.body.scrollTop || document.documentElement.scrollTop, sh = (document.body.scrollHeight || document.documentElement.scrollHeight) - screen.availHeight;
-        if(st >= h){
-            document.getElementById("all").classList.add("fixed-nav");
-        }else{
-            document.getElementById("all").classList.remove("fixed-nav");
-        }
-        all.style.backgroundPosition = "0 "+(st*0.93)+"px";
-        bgc[2] = 97.64705882352941*(1-st/sh*0.8);
-        all.style.backgroundColor = bgc.hex();
+var flag = {};
+function loadScript(url, f){
+    var s = document.createElement("script");
+    s.onload = function(){
+        flag[f] = true;
     }
+    s.src = url;
+    document.head.appendChild(s);
+}
+function loadCSS(url, f){
+    var s = document.createElement("link");
+    s.onload = function(){
+        flag[f] = true;
+    }
+    s.rel = "stylesheet";
+    s.type = "text/css";
+    s.href = url;
+    document.head.appendChild(s);
+}
+function run(){
+    var bgc = Color("#f9f9f9").hsv(0);
     var ca = document.getElementById("sandbox"), v = ca.getContext("2d"), color = new Color("hsv"), x = 0; y = 0, bw = 40, bh = 40, fr = 1;
     color[0] = Math.floor(Math.random()*360);
     color[1] = Math.floor(Math.random()*50)+50;
@@ -929,12 +965,16 @@ window.onload = function(){
     color.alpha = 100;
     var dr = setInterval( draw, 20 );
     function loadImg(){
-        var d = document.querySelector("img[data-src]"), img = new Image();
+        var d = document.querySelector("img[data-src]"), img = new Image(), c = document.createElement("span");
         if(d){
             img.onload = function(){
+                this.width = this.naturalWidth;
+                this.height = this.naturalHeight;
                 this.onload = undefined;
             }
-            d.parentNode.insertBefore(img, d);
+            c.appendChild(img);
+            c.className = "js-loaded-img";
+            d.parentNode.insertBefore(c, d);
             d.parentNode.removeChild(d);
             img.src = d.dataset.src;
             return 1;
@@ -942,6 +982,40 @@ window.onload = function(){
         return 0;
     }
     while(loadImg()){};
+    var jsItems = document.getElementsByClassName("js-item");
+    while(jsItems.length){
+        jsItems[0].classList.remove("js-item");
+    }
+    function imgView(){
+        var gs = document.getElementsByClassName("group"), t, f = 0;
+        for( var i = gs.length; i ; i-- ){
+            t = gs[i-1].getBoundingClientRect();
+            if( !f && t.top < window.screen.availHeight/5*2 && t.top + t.height > 0 ){
+                gs[i-1].classList.add("view");
+                f = 1;
+            }else{
+                gs[i-1].classList.remove("view");
+            }
+        }
+    }
+    window.onscroll = function(){
+        var h = document.getElementById("header").offsetHeight, bg = document.getElementById("all"), st = document.body.scrollTop || document.documentElement.scrollTop, sh = (document.body.scrollHeight || document.documentElement.scrollHeight) - screen.availHeight;
+        if(st >= h){
+            document.getElementById("all").classList.add("fixed-nav");
+        }else{
+            document.getElementById("all").classList.remove("fixed-nav");
+        }
+        all.style.backgroundPosition = "0 "+(st*0.93)+"px";
+        bgc[2] = 97.64705882352941*(1-st/sh*0.8);
+        all.style.backgroundColor = bgc.hex();
+        imgView();
+    }
+    window.onload = undefined;
+}
+window.onload = function(){
+    loadScript( "https://xnedkx.github.io/color/cc-min.js", "ccjs" );
+    loadCSS( "https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans+Caption", "font" );
+    var t = setInterval( function(){ if(flag.ccjs){ run(); clearInterval(t);} }, 50 );
 }
 </script>
 <script>
