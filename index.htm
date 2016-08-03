@@ -48,6 +48,9 @@ a[href]:active {
 }
 a[href]:visited {
 }
+img[data-src], img.loading {
+    height: 400px;
+}
 #header {
     margin: 0 auto;
     width: 100%;
@@ -289,9 +292,16 @@ a[href]:visited {
     background-color: rgba(222,222,222,0);
 }
 .block .group {
+    color: #999;
     margin: 0 auto;
     padding-bottom: 30px;
     display: inline-block;
+}
+.block .group:hover {
+    color: inherit;
+}
+.block .group.view {
+    color: inherit;
 }
 .block .group .left, .block .group .right, .block .group .js-loaded-img::before{
     transition: all 0.2s ease-in;
@@ -810,9 +820,9 @@ Lists below are the web apps I did.<br><br>If you have intrest in any of them,<b
 <div class="left">
 <div class="i-title"><span>中醫方劑藥物複習測驗程式</span></div>
 <div class="i-img js-item"><img data-src="./cmt.png" /></div>
-<div class="i-box">提供了藥物分類、以方記藥、以藥記方 3 種複習測驗。</div>
+<div class="i-box">提供了數種中藥藥複習測驗。</div>
 </div>
-<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/chimed/" target="_blank">中藥測驗</a></div>
+<div class="right">on Github: <a href="https://xnedkx.github.io/Practices/chimed/" target="_blank">中醫測驗</a></div>
 </div>
 </div>
 <div id="archives" class="block">
@@ -970,10 +980,11 @@ function run(){
             img.onload = function(){
                 this.width = this.naturalWidth;
                 this.height = this.naturalHeight;
+                this.classList.remove("loading");
                 this.onload = undefined;
             }
             c.appendChild(img);
-            c.className = "js-loaded-img";
+            c.className = "js-loaded-img loading";
             d.parentNode.insertBefore(c, d);
             d.parentNode.removeChild(d);
             img.src = d.dataset.src;
@@ -1009,6 +1020,15 @@ function run(){
         bgc[2] = 97.64705882352941*(1-st/sh*0.8);
         all.style.backgroundColor = bgc.hex();
         imgView();
+    }
+    if(Storage){
+        window.onbeforeunload = function(){
+            localStorage.setItem("scroll", document.body.scrollTop);
+            localStorage.setItem("time", Date.now());
+        }
+        if(Date.now() - localStorage.time < 86400000 ){
+            setTimeout(function(){document.body.scrollTop = localStorage.scroll;}, 100);
+        }
     }
     window.onload = undefined;
 }
