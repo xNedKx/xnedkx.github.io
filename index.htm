@@ -1001,7 +1001,7 @@ function run(){
         var gs = document.getElementsByClassName("group"), t, f = 0;
         for( var i = gs.length; i ; i-- ){
             t = gs[i-1].getBoundingClientRect();
-            if( !f && t.top < window.screen.availHeight/5*2 && t.top + t.height > 0 ){
+            if( !f && t.top < window.screen.availHeight/8*3 && t.top + t.height > 0 ){
                 gs[i-1].classList.add("view");
                 f = 1;
             }else{
