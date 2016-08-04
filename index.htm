@@ -998,18 +998,20 @@ function run(){
         jsItems[0].classList.remove("js-item");
     }
     function imgView(){
-        var gs = document.getElementsByClassName("group"), t, f = 0;
-        for( var i = gs.length; i ; i-- ){
-            t = gs[i-1].getBoundingClientRect();
-            if( !f && t.top < window.screen.availHeight/8*3 && t.top + t.height > 0 ){
-                gs[i-1].classList.add("view");
-                f = 1;
-            }else{
-                gs[i-1].classList.remove("view");
+        var view = document.querySelector(".group.view"), gs = document.getElementsByClassName("group"), t = view ? view.getBoundingClientRect() : null, h = window.screen.availHeight/8*3, f = 0;
+        if( !view || (t && ( t.top + t.height < h || t.top > h )) ){
+            for( var i = gs.length; i ; i-- ){
+                t = gs[i-1].getBoundingClientRect();
+                if( !f && t.top < h && t.top + t.height > 0 ){
+                    gs[i-1].classList.add("view");
+                    f++;
+                }else{
+                    gs[i-1].classList.remove("view");
+                }
             }
         }
     }
-    window.onscroll = function(){
+    window.onscroll = function(e){
         var h = document.getElementById("header").offsetHeight, bg = document.getElementById("all"), st = document.body.scrollTop || document.documentElement.scrollTop, sh = (document.body.scrollHeight || document.documentElement.scrollHeight) - screen.availHeight;
         if(st >= h){
             document.getElementById("all").classList.add("fixed-nav");
