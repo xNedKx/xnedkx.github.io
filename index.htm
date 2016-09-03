@@ -1060,7 +1060,7 @@ function run(){
             localStorage.setItem("hash", location.hash);
             localStorage.setItem("time", Date.now());
         }
-        if(Date.now() - localStorage.time < 86400000 && location.hash != localStorage.hash){
+        if(Date.now() - localStorage.time < 86400000 && (!location.hash || location.hash != localStorage.hash)){
             scrollTo(localStorage.scroll, 500);
             localStorage.removeItem("time");
             localStorage.removeItem("hash");
