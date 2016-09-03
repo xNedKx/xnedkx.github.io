@@ -1049,7 +1049,7 @@ function run(){
         var start = Date.now(), si = setInterval(function(){
             scrollOnce(y,speed);
             var st = document.body.scrollTop || document.documentElement.scrollTop;
-            if(st == y || Date.now() - start > 1800){
+            if(st == y || Date.now() - start > 3000){
                 clearInterval(si);
             }
         }, 10);
