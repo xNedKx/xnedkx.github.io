@@ -1049,7 +1049,7 @@ function run(){
         var start = Date.now(), si = setInterval(function(){
             scrollOnce(y,speed);
             var st = document.body.scrollTop || document.documentElement.scrollTop;
-            if(st == y || Date.now() - start > 5000){
+            if(st == y || Date.now() - start > 3000){
                 clearInterval(si);
             }
         }, 10);
@@ -1068,13 +1068,13 @@ function run(){
         }else if(localStorage.hash){
             setTimeout(function(){
                 scrollTo(document.querySelector(location.hash).offsetTop+30, 500);
-            }, 250);
+            }, 2000);
         }
     }
     if(location.hash){
         setTimeout(function(){
             scrollTo(document.querySelector(location.hash).offsetTop+30, 500);
-        }, 250);
+        }, 2000);
     }
     window.dispatchEvent(new Event("scroll"));
     window.onload = undefined;
