@@ -1034,15 +1034,49 @@ function run(){
         all.style.backgroundColor = bgc.hex();
         imgView();
     }
+    function scrollOnce(y, speed){
+        var st = document.body.scrollTop || document.documentElement.scrollTop;
+        speed = Math.abs(speed);
+        if(st > y + speed){
+            document.body.scrollTop = st - speed;
+        }else if(st < y - speed){
+            document.body.scrollTop = st + speed;
+        }else{
+            document.body.scrollTop = y;
+        }
+    }
+    function scrollTo(y, speed){
+        var start = Date.now(), si = setInterval(function(){
+            scrollOnce(y,speed);
+            var st = document.body.scrollTop || document.documentElement.scrollTop;
+            if(st == y || Date.now() - start > 1800){
+                clearInterval(si);
+            }
+        }, 10);
+    }
     if(Storage){
         window.onbeforeunload = function(){
             localStorage.setItem("scroll", document.body.scrollTop);
+            localStorage.setItem("hash", location.hash);
             localStorage.setItem("time", Date.now());
         }
-        if(Date.now() - localStorage.time < 86400000 ){
-            setTimeout(function(){document.body.scrollTop = localStorage.scroll;}, 100);
+        if(Date.now() - localStorage.time < 86400000 && location.hash != localStorage.hash){
+            scrollTo(localStorage.scroll, 500);
+            localStorage.removeItem("time");
+            localStorage.removeItem("hash");
+            localStorage.removeItem("scroll");
+        }else if(localStorage.hash){
+            setTimeout(function(){
+                scrollTo(document.querySelector(location.hash).offsetTop+30, 500);
+            }, 250);
         }
     }
+    if(location.hash){
+        setTimeout(function(){
+            scrollTo(document.querySelector(location.hash).offsetTop+30, 500);
+        }, 250);
+    }
+    window.dispatchEvent(new Event("scroll"));
     window.onload = undefined;
 }
 window.onload = function(){
