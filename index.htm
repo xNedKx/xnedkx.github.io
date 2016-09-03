@@ -1039,15 +1039,18 @@ function run(){
         speed = Math.abs(speed);
         if(st > y + speed){
             document.body.scrollTop = st - speed;
+            document.documentElement.scrollTop = st - speed;
         }else if(st < y - speed){
             document.body.scrollTop = st + speed;
+            document.documentElement.scrollTop = st + speed;
         }else{
             document.body.scrollTop = y;
+            document.documentElement.scrollTop = y;
         }
     }
     function scrollTo(y, speed){
         var start = Date.now(), si = setInterval(function(){
-            scrollOnce(y,speed);
+            scrollOnce(y, speed);
             var st = document.body.scrollTop || document.documentElement.scrollTop;
             if(st == y || Date.now() - start > 3000){
                 clearInterval(si);
@@ -1056,12 +1059,12 @@ function run(){
     }
     if(Storage){
         window.onbeforeunload = function(){
-            localStorage.setItem("scroll", document.body.scrollTop);
+            localStorage.setItem("scroll", document.body.scrollTop || document.documentElement.scrollTop);
             localStorage.setItem("hash", location.hash);
             localStorage.setItem("time", Date.now());
         }
         if(Date.now() - localStorage.time < 86400000 && (!location.hash || location.hash != localStorage.hash)){
-            scrollTo(localStorage.scroll, 500);
+            scrollTo(localStorage.getItem("scroll"), 500);
             localStorage.removeItem("time");
             localStorage.removeItem("hash");
             localStorage.removeItem("scroll");
